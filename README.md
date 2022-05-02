@@ -11,3 +11,8 @@
 
  The conventions and functions are tested as part of the sofar package available
  from https://github.com/pyfar/sofar
+
+**References**
+
+AES69-2020: *AES standard for file exchange - Spatial acoustic data file
+format*, Audio Engineering Society, Inc., New York, NY, USA.
