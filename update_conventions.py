@@ -272,6 +272,9 @@ def _convention_csv2dict(file: str):
             if line[1] == "permute([0 0 0 1 0 0; 0 0 0 1 0 0], [3 1 2]);":
                 # Field Data.SOS in SimpleFreeFieldHRSOS and SimpleFreeFieldSOS
                 line[1] = [[[0, 0, 0, 1, 0, 0], [0, 0, 0, 1, 0, 0]]]
+            if line[1] == "permute([0 0 0 1 0 0], [3 1 2]);":
+                # Field Data.SOS in GeneralSOS
+                line[1] = [[[0, 0, 0, 1, 0, 0]]]
             if line[1] == "{''}":
                 line[1] = ['']
             # convert versions to strings
