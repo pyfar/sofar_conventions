@@ -118,13 +118,6 @@
         "type": "attribute",
         "comment": ""
     },
-    "GLOBAL:RoomDescription": {
-        "default": "",
-        "flags": null,
-        "dimensions": null,
-        "type": "attribute",
-        "comment": "narrative description of the room"
-    },
     "GLOBAL:History": {
         "default": "",
         "flags": null,
@@ -145,6 +138,41 @@
         "dimensions": null,
         "type": "attribute",
         "comment": ""
+    },
+    "GLOBAL:DatabaseName": {
+        "default": "",
+        "flags": "m",
+        "dimensions": null,
+        "type": "attribute",
+        "comment": "Name of the database. Used for classification of the data."
+    },
+    "GLOBAL:RoomShortName": {
+        "default": "",
+        "flags": null,
+        "dimensions": null,
+        "type": "attribute",
+        "comment": "Short name of the Room"
+    },
+    "GLOBAL:RoomDescription": {
+        "default": "",
+        "flags": null,
+        "dimensions": null,
+        "type": "attribute",
+        "comment": "Informal verbal description of the room"
+    },
+    "GLOBAL:RoomLocation": {
+        "default": "",
+        "flags": null,
+        "dimensions": null,
+        "type": "attribute",
+        "comment": "Location of the room"
+    },
+    "GLOBAL:RoomGeometry": {
+        "default": "",
+        "flags": null,
+        "dimensions": null,
+        "type": "attribute",
+        "comment": "URI to a file describing the room geometry."
     },
     "GLOBAL:ListenerShortName": {
         "default": "",
@@ -202,12 +230,76 @@
         "type": "attribute",
         "comment": ""
     },
-    "GLOBAL:DatabaseName": {
-        "default": "",
-        "flags": "m",
+    "RoomTemperature": {
+        "default": 0,
+        "flags": null,
+        "dimensions": "I, M",
+        "type": "double",
+        "comment": "Temperature during measurements"
+    },
+    "RoomTemperature:Units": {
+        "default": "kelvin",
+        "flags": null,
         "dimensions": null,
         "type": "attribute",
-        "comment": "Name of the database. Used for classification of the data."
+        "comment": "Units of the room temperature"
+    },
+    "RoomVolume": {
+        "default": 0,
+        "flags": null,
+        "dimensions": "I, M",
+        "type": "double",
+        "comment": "Volume of the room"
+    },
+    "RoomVolume:Units": {
+        "default": "cubic metre",
+        "flags": null,
+        "dimensions": null,
+        "type": "attribute",
+        "comment": "Units of the room volume"
+    },
+    "RoomCornerA": {
+        "default": [
+            0,
+            0,
+            0
+        ],
+        "flags": null,
+        "dimensions": "IC, MC",
+        "type": "double",
+        "comment": ""
+    },
+    "RoomCornerB": {
+        "default": [
+            1,
+            2,
+            3
+        ],
+        "flags": null,
+        "dimensions": "IC, MC",
+        "type": "double",
+        "comment": ""
+    },
+    "RoomCorners": {
+        "default": 0,
+        "flags": null,
+        "dimensions": "II",
+        "type": "double",
+        "comment": "The value of this attribute is to be ignored. It only exist to for RoomCorners:Type and RoomCorners:Units"
+    },
+    "RoomCorners:Type": {
+        "default": "cartesian",
+        "flags": null,
+        "dimensions": null,
+        "type": "attribute",
+        "comment": ""
+    },
+    "RoomCorners:Units": {
+        "default": "metre",
+        "flags": null,
+        "dimensions": null,
+        "type": "attribute",
+        "comment": ""
     },
     "ListenerPosition": {
         "default": [
@@ -269,6 +361,15 @@
         "dimensions": null,
         "type": "attribute",
         "comment": ""
+    },
+    "ReceiverDescriptions": {
+        "default": [
+            ""
+        ],
+        "flags": null,
+        "dimensions": "RS",
+        "type": "string",
+        "comment": "R-dependent version of the attribute ReceiverDescription"
     },
     "ReceiverPosition": {
         "default": [
@@ -392,6 +493,15 @@
         "type": "attribute",
         "comment": ""
     },
+    "EmitterDescriptions": {
+        "default": [
+            ""
+        ],
+        "flags": null,
+        "dimensions": "ES",
+        "type": "string",
+        "comment": "E-dependent version of the attribute EmitterDescription"
+    },
     "EmitterPosition": {
         "default": [
             0,
@@ -452,49 +562,6 @@
         "dimensions": null,
         "type": "attribute",
         "comment": ""
-    },
-    "RoomCornerA": {
-        "default": [
-            0,
-            0,
-            0
-        ],
-        "flags": null,
-        "dimensions": "IC, MC",
-        "type": "double",
-        "comment": ""
-    },
-    "RoomCornerB": {
-        "default": [
-            1,
-            2,
-            3
-        ],
-        "flags": null,
-        "dimensions": "IC, MC",
-        "type": "double",
-        "comment": ""
-    },
-    "RoomCorners": {
-        "default": 0,
-        "flags": null,
-        "dimensions": "II",
-        "type": "double",
-        "comment": "The value of this attribute is to be ignored. It only exist to for RoomCorners:Type and RoomCorners:Units"
-    },
-    "RoomCorners:Type": {
-        "default": "cartesian",
-        "flags": null,
-        "dimensions": null,
-        "type": "attribute",
-        "comment": "Type of coordinate system for RoomCornerA and RoomCornerB"
-    },
-    "RoomCorners:Units": {
-        "default": "metre",
-        "flags": null,
-        "dimensions": null,
-        "type": "attribute",
-        "comment": "Unit of coordinate system for RoomCornerA and RoomCornerB"
     },
     "Data.IR": {
         "default": 0,

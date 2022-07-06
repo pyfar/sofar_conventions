@@ -14,11 +14,11 @@
         "comment": ""
     },
     "GLOBAL:SOFAConventions": {
-        "default": "SimpleHeadphoneIR",
+        "default": "GeneralSOS",
         "flags": "rm",
         "dimensions": null,
         "type": "attribute",
-        "comment": "Conventions for IRs with a 1-to-1 correspondence between emitter and receiver. The main application for this convention is to store headphone IRs recorded for each emitter and each ear."
+        "comment": "This conventions follows GeneralFIR but the data is stored as second-order section (SOS) coefficients."
     },
     "GLOBAL:SOFAConventionsVersion": {
         "default": "1.0",
@@ -70,11 +70,11 @@
         "comment": ""
     },
     "GLOBAL:DataType": {
-        "default": "FIR",
+        "default": "SOS",
         "flags": "rm",
         "dimensions": null,
         "type": "attribute",
-        "comment": "We will store IRs here"
+        "comment": "Filters described as second-order section (SOS) coefficients"
     },
     "GLOBAL:History": {
         "default": "",
@@ -109,7 +109,7 @@
         "flags": "m",
         "dimensions": null,
         "type": "attribute",
-        "comment": "Room type is not relevant here"
+        "comment": "The room information can be arbitrary"
     },
     "GLOBAL:Origin": {
         "default": "",
@@ -139,69 +139,6 @@
         "type": "attribute",
         "comment": ""
     },
-    "GLOBAL:DatabaseName": {
-        "default": "",
-        "flags": "m",
-        "dimensions": null,
-        "type": "attribute",
-        "comment": "Correspondence to a database"
-    },
-    "GLOBAL:ListenerShortName": {
-        "default": "",
-        "flags": "m",
-        "dimensions": null,
-        "type": "attribute",
-        "comment": "Correspondence to a subject from the database"
-    },
-    "GLOBAL:ListenerDescription": {
-        "default": "",
-        "flags": "m",
-        "dimensions": null,
-        "type": "attribute",
-        "comment": "Narrative description of the listener (or mannequin)"
-    },
-    "GLOBAL:SourceDescription": {
-        "default": "",
-        "flags": "m",
-        "dimensions": null,
-        "type": "attribute",
-        "comment": "Narrative description of the headphones"
-    },
-    "GLOBAL:SourceManufacturer": {
-        "default": "",
-        "flags": "m",
-        "dimensions": null,
-        "type": "attribute",
-        "comment": "Name of the headphones manufacturer"
-    },
-    "GLOBAL:SourceModel": {
-        "default": "",
-        "flags": "m",
-        "dimensions": null,
-        "type": "attribute",
-        "comment": "Name of the headphone model. Must uniquely describe the headphones of the manufacturer"
-    },
-    "GLOBAL:SourceURI": {
-        "default": "",
-        "flags": "m",
-        "dimensions": null,
-        "type": "attribute",
-        "comment": "URI of the headphone specifications"
-    },
-    "GLOBAL:ReceiverDescription": {
-        "default": "",
-        "flags": "m",
-        "dimensions": null,
-        "type": "attribute",
-        "comment": "Narrative description of the microphones"
-    },
-    "GLOBAL:EmitterDescription": {
-        "default": "",
-        "flags": "m",
-        "dimensions": null,
-        "type": "attribute",
-        "comment": "Narrative description of the headphone drivers"
-    },
     "ListenerPosition": {
         "default": [
             0,
@@ -227,21 +164,39 @@
         "type": "attribute",
         "comment": ""
     },
+    "ListenerView": {
+        "default": [
+            1,
+            0,
+            0
+        ],
+        "flags": null,
+        "dimensions": "IC, MC",
+        "type": "double",
+        "comment": ""
+    },
+    "ListenerView:Type": {
+        "default": "cartesian",
+        "flags": null,
+        "dimensions": null,
+        "type": "attribute",
+        "comment": ""
+    },
+    "ListenerView:Units": {
+        "default": "metre",
+        "flags": null,
+        "dimensions": null,
+        "type": "attribute",
+        "comment": ""
+    },
     "ReceiverPosition": {
         "default": [
-            [
-                0,
-                0.09,
-                0
-            ],
-            [
-                0,
-                -0.09,
-                0
-            ]
+            0,
+            0,
+            0
         ],
         "flags": "m",
-        "dimensions": "rCI, rCM",
+        "dimensions": "IC, RC, RCM",
         "type": "double",
         "comment": ""
     },
@@ -263,12 +218,12 @@
         "default": [
             0,
             0,
-            0
+            1
         ],
         "flags": "m",
         "dimensions": "IC, MC",
         "type": "double",
-        "comment": "Default: Headphones are located at the position of the listener"
+        "comment": "In order to store different directions/positions around the listener, SourcePosition is assumed to vary"
     },
     "SourcePosition:Type": {
         "default": "spherical",
@@ -286,21 +241,14 @@
     },
     "EmitterPosition": {
         "default": [
-            [
-                0,
-                0.09,
-                0
-            ],
-            [
-                0,
-                -0.09,
-                0
-            ]
+            0,
+            0,
+            0
         ],
         "flags": "m",
         "dimensions": "eCI, eCM",
         "type": "double",
-        "comment": "Default: Reflects the correspondence of each emitter to each receiver"
+        "comment": ""
     },
     "EmitterPosition:Type": {
         "default": "cartesian",
@@ -316,81 +264,43 @@
         "type": "attribute",
         "comment": ""
     },
-    "SourceManufacturer": {
+    "Data.SOS": {
         "default": [
-            ""
-        ],
-        "flags": null,
-        "dimensions": "MS",
-        "type": "string",
-        "comment": "Optional M-dependent version of the attribute SourceManufucturer"
-    },
-    "SourceModel": {
-        "default": [
-            ""
-        ],
-        "flags": null,
-        "dimensions": "MS",
-        "type": "string",
-        "comment": "Optional M-dependent version of the attribute SourceModel"
-    },
-    "ReceiverDescriptions": {
-        "default": [
-            ""
-        ],
-        "flags": null,
-        "dimensions": "MS",
-        "type": "string",
-        "comment": "R-dependent version of the attribute ReceiverDescription"
-    },
-    "EmitterDescriptions": {
-        "default": [
-            ""
-        ],
-        "flags": null,
-        "dimensions": "MS",
-        "type": "string",
-        "comment": "E-dependent version of the attribute EmitterDescription"
-    },
-    "MeasurementDate": {
-        "default": 0,
-        "flags": null,
-        "dimensions": "M",
-        "type": "double",
-        "comment": "Optional M-dependent date and time of the measurement"
-    },
-    "Data.IR": {
-        "default": [
-            0,
-            0
+            [
+                [
+                    0,
+                    0,
+                    0,
+                    1,
+                    0,
+                    0
+                ]
+            ]
         ],
         "flags": "m",
-        "dimensions": "mRn",
+        "dimensions": "mrn",
         "type": "double",
-        "comment": ""
+        "comment": "Filter coefficients as SOS coefficients."
     },
     "Data.SamplingRate": {
         "default": 48000,
         "flags": "m",
         "dimensions": "I, M",
         "type": "double",
-        "comment": ""
+        "comment": "Sampling rate of the coefficients in Data.SOS and the delay in Data.Delay"
     },
     "Data.SamplingRate:Units": {
         "default": "hertz",
         "flags": "m",
         "dimensions": null,
         "type": "attribute",
-        "comment": ""
+        "comment": "Unit of the sampling rate"
     },
     "Data.Delay": {
-        "default": [
-            0,
-            0
-        ],
+        "default": 0,
         "flags": "m",
         "dimensions": "IR, MR",
         "type": "double",
-        "comment": ""
+        "comment": "Broadband delay (in samples resulting from SamplingRate)"
     }
 }

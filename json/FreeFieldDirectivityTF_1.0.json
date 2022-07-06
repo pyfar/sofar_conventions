@@ -397,7 +397,7 @@
         "flags": null,
         "dimensions": "I, M",
         "type": "double",
-        "comment": "Frequency (in Hertz) to which a musical instrument is tuned to corresponding to the note A4 (MIDINote=69). Recommended for tonal instruments."
+        "comment": "Frequency (in hertz) to which a musical instrument is tuned to corresponding to the note A4 (MIDINote=69). Recommended for tonal instruments."
     },
     "N": {
         "default": 0,
