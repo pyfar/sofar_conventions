@@ -1,11 +1,11 @@
 # sofar conventions
 
- SOFA conventions of the official Matlab/Octave API (API_MO) as json files.
- SOFA conventions are the basis of SOFA files, a data format to store spatially
- distributed acoustic data.
+ SOFA conventions of the official Matlab/Octave API (SOFAtoolbox) as json
+ files. SOFA conventions are the basis of SOFA files, a data format to store
+ spatially distributed acoustic data.
 
- The function `update_conventions()` reads the official conventions from API_MO
- available as csv files from https://github.com/sofacoustics/API_MO/tree/master/API_MO/conventions
+ The function `update_conventions()` reads the official conventions from
+ SOFAtoolbox available as csv files from https://github.com/sofacoustics/SOFAtoolbox/tree/master/SOFAtoolbox/conventions
  and converts them to json files. During the conversion some Matlab/Octave
  specific values in the csv files are converted to Python specific values.
 

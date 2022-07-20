@@ -15,7 +15,7 @@ def update_conventions(conventions_path=None, assume_yes=False):
 
     1.
         Download official SOFA conventions as csv files from
-        https://github.com/sofacoustics/API_MO/tree/master/API_MO/conventions.
+        https://github.com/sofacoustics/SOFAtoolbox/tree/master/SOFAtoolbox/conventions.
     2.
         Convert csv files to json files to be read by sofar.
     3.
@@ -61,10 +61,10 @@ def update_conventions(conventions_path=None, assume_yes=False):
             return
 
     # url for parsing and downloading the convention files
-    url = ("https://github.com/sofacoustics/API_MO/tree/"
-           "master/API_MO/conventions")
-    url_raw = ("https://raw.githubusercontent.com/sofacoustics/API_MO/"
-               "master/API_MO/conventions")
+    url = ("https://github.com/sofacoustics/SOFAtoolbox/tree/master/"
+           "SOFAtoolbox/conventions")
+    url_raw = ("https://raw.githubusercontent.com/sofacoustics/SOFAtoolbox/"
+               "master/SOFAtoolbox/conventions")
     ext = 'csv'
 
     print(f"Reading SOFA conventions from {url} ...")
@@ -132,8 +132,9 @@ def update_conventions(conventions_path=None, assume_yes=False):
 def _compile_conventions(conventions_path=None):
     """
     Compile SOFA conventions (json files) from source conventions (csv files
-    from SOFA API_MO), i.e., only do step 2 from `update_conventions`. This is
-    a helper function for debugging and developing and might break sofar.
+    from SOFA SOFAtoolbox), i.e., only do step 2 from `update_conventions`.
+    This is a helper function for debugging and developing and might break
+    sofar.
 
     Parameters
     ----------
@@ -171,8 +172,8 @@ def _compile_conventions(conventions_path=None):
 def _convention_csv2dict(file: str):
     """
     Read a SOFA convention as csv file from the official Matlab/Octave API for
-    SOFA (API_MO) and convert them to a Python dictionary. The dictionary can
-    be written for example to a json file using
+    SOFA (SOFAtoolbox) and convert them to a Python dictionary. The dictionary
+    can be written for example to a json file using
 
     import json
 
